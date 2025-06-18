@@ -1,0 +1,116 @@
+/* src/components/QuizInterface.module.css */
+.quizInterface {
+  padding: var(--spacing-md);
+  max-width: 800px;
+  margin: var(--spacing-lg) auto;
+  background-color: var(--color-background-card);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.questionCard {
+  background-color: #f0f8ff; /* Un bleu très clair pour la carte question */
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  margin-top: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.choiceButton {
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.choiceButton:hover:not(:disabled) {
+  background-color: var(--color-secondary-dark); /* Assurez-vous de définir cette variable */
+  transform: translateY(-2px);
+}
+
+.choiceButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.choiceButton.selected {
+  border: 2px solid var(--color-accent);
+}
+
+.choiceButton.correct-answer {
+  background-color: var(--color-primary-dark); /* Vert foncé pour la bonne réponse */
+}
+
+.explanation {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  background-color: #e8f5e9; /* Vert très clair pour l'explication */
+  border-left: 5px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  text-align: left;
+}
+
+.explanation p {
+  margin-bottom: var(--spacing-sm);
+}
+
+.explanation button {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  margin-top: var(--spacing-sm);
+  transition: background-color 0.2s ease;
+  font-size: 1rem;
+}
+
+.explanation button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* styles for ScoreDisplay.jsx */
+.scoreDisplay {
+  padding: var(--spacing-xl);
+  text-align: center;
+  max-width: 600px;
+  margin: var(--spacing-xl) auto;
+  background-color: var(--color-background-card);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.finalScore {
+  font-size: 2.5rem;
+  color: var(--color-primary-dark);
+  margin: var(--spacing-md) 0;
+  display: block; /* Pour s'assurer qu'il prend sa propre ligne */
+}
+
+.restartButton {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: var(--spacing-lg);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.restartButton:hover {
+  background-color: var(--color-primary-dark);
+  transform: scale(1.02);
+}
+
+

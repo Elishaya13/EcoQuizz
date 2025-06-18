@@ -1,0 +1,67 @@
+/* src/components/ScoreDisplay.module.css */
+.scoreDisplay {
+  padding: var(--spacing-xl);
+  text-align: center;
+  max-width: 600px;
+  margin: var(--spacing-xl) auto;
+  background-color: var(--color-background-card);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.scoreDisplay h2 {
+  font-size: 2.5rem;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--spacing-md);
+}
+
+.scoreDisplay p {
+  font-size: 1.2rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-md);
+}
+
+.finalScore {
+  font-size: 3rem; /* Rendre le score très visible */
+  color: var(--color-primary); /* Une couleur attrayante pour le score */
+  font-weight: bold;
+  display: block; /* Pour s'assurer qu'il prend sa propre ligne */
+  margin: var(--spacing-sm) 0;
+}
+
+.restartButton {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: var(--spacing-lg);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.restartButton:hover {
+  background-color: var(--color-primary-dark);
+  transform: scale(1.02);
+}
+
+/* Responsive pour les écrans plus petits */
+@media (max-width: 768px) {
+  .scoreDisplay {
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) auto;
+  }
+  .scoreDisplay h2 {
+    font-size: 2rem;
+  }
+  .scoreDisplay p {
+    font-size: 1rem;
+  }
+  .finalScore {
+    font-size: 2.5rem;
+  }
+  .restartButton {
+    font-size: 1rem;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+}

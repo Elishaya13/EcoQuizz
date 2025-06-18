@@ -13,6 +13,7 @@
   --color-background-card: #fff; /* Arrière-plan des cartes */
   --color-border: #ddd; /* Couleur des bordures */
   --color-accent: #FFC107; /* Jaune or, pour le focus/alerte */
+  --color-secondary-dark: #1976D2; /* Bleu foncé pour le hover */
 
   /* Espacements */
   --spacing-xs: 0.5rem;
