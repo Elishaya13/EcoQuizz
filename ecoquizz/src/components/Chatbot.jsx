@@ -1,28 +1,35 @@
 // src/components/Chatbot.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import styles from './Chatbot.module.css'; // Importez le module CSS
 
-function Chatbot({ initialMessage }) {
-  const [messages, setMessages] = useState([]);
+function Chatbot({ initialMessage, messages = [] }) { // Ajout de props messages pour le contrôle externe
+  const [internalMessages, setInternalMessages] = useState([]);
+  const messagesEndRef = useRef(null); // Pour faire défiler automatiquement
 
   useEffect(() => {
-    // Le premier message du chatbot
-    setMessages([{ sender: 'bot', text: initialMessage }]);
-  }, [initialMessage]);
+    // Si messages est passé en props, utilisez-le, sinon initialMessage
+    if (messages && messages.length > 0) {
+      setInternalMessages(messages);
+    } else {
+      setInternalMessages([{ sender: 'bot', text: initialMessage }]);
+    }
+  }, [initialMessage, messages]);
 
-  // Vous ajouterez ici des fonctions pour ajouter des messages du bot ou de l'utilisateur
-  // en fonction de l'interaction (choix de thème, réponses aux questions).
+  // Scroll automatique vers le bas quand de nouveaux messages arrivent
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [internalMessages]);
 
   return (
-    <aside className="chatbot-container" aria-live="polite" aria-atomic="true">
-      <div className="chatbot-messages">
-        {messages.map((msg, index) => (
-          <div key={index} className={`message ${msg.sender}`}>
+    <aside className={styles.chatbotContainer} aria-live="polite" aria-atomic="true">
+      <div className={styles.chatbotMessages}>
+        {internalMessages.map((msg, index) => (
+          <div key={index} className={`${styles.message} ${styles[msg.sender]}`}>
             <p>{msg.text}</p>
           </div>
         ))}
+        <div ref={messagesEndRef} /> {/* Élément vide pour le défilement */}
       </div>
-      {/* Vous pouvez ajouter un input pour l'utilisateur si le chatbot le nécessite,
-          mais pour un quiz avec choix prédéfinis, ce n'est pas toujours nécessaire. */}
     </aside>
   );
 }

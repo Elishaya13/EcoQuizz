@@ -1,0 +1,57 @@
+/* src/components/Chatbot.module.css */
+.chatbotContainer {
+  position: fixed; /* Fixer le chatbot à l'écran */
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  width: 320px; /* Largeur du chatbot */
+  max-height: 450px; /* Hauteur max */
+  background-color: var(--color-background-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Pour cacher le contenu qui dépasse */
+  z-index: 1000; /* Assurez-vous qu'il est au-dessus des autres éléments */
+}
+
+.chatbotMessages {
+  flex-grow: 1;
+  padding: var(--spacing-sm);
+  overflow-y: auto; /* Permet le défilement des messages */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.message {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-md);
+  max-width: 80%;
+  word-wrap: break-word; /* Gère les longs mots */
+}
+
+.bot {
+  background-color: var(--color-primary-light);
+  color: var(--color-text-light);
+  align-self: flex-start; /* Aligner à gauche */
+  border-bottom-left-radius: 4px; /* Petite touche esthétique */
+}
+
+.user {
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+  align-self: flex-end; /* Aligner à droite */
+  border-bottom-right-radius: 4px; /* Petite touche esthétique */
+}
+
+/* Responsive pour le chatbot */
+@media (max-width: 768px) {
+  .chatbotContainer {
+    width: 90%; /* Prend plus de largeur sur mobile */
+    bottom: var(--spacing-md);
+    right: 5%; /* Centrer approximativement */
+    left: 5%;
+    max-height: 350px;
+  }
+}

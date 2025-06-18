@@ -1,8 +1,8 @@
 // src/components/ThemeSelection.jsx
 import React from 'react';
 import ThemeCard from './ThemeCard';
+import styles from './ThemeSelection.module.css'; // Importez le module CSS
 
-// Définissez vos thèmes ici. Les icônes seraient des chemins vers vos fichiers SVG/WebP optimisés.
 const themes = [
   {
     name: "Climat & Énergie",
@@ -32,16 +32,16 @@ const themes = [
 
 function ThemeSelection({ onThemeSelect }) {
   return (
-    <section className="theme-selection" aria-labelledby="theme-selection-title">
-      <h2 id="theme-selection-title" className="visually-hidden">Choisissez votre thème</h2> {/* Hidden for visual, but accessible for screen readers */}
-      <div className="theme-cards-container">
+    <section className={styles.themeSelection} aria-labelledby="theme-selection-title">
+      <h2 id="theme-selection-title" className="visually-hidden">Choisissez votre thème</h2>
+      <div className={styles.themeCardsContainer}>
         {themes.map((theme) => (
           <ThemeCard
             key={theme.id}
             theme={theme.name}
             description={theme.description}
             icon={theme.icon}
-            onClick={() => onThemeSelect(theme.id)} // Passe l'ID du thème au parent
+            onClick={() => onThemeSelect(theme.id)}
           />
         ))}
       </div>

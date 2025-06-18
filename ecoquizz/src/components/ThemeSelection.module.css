@@ -1,0 +1,20 @@
+/* src/components/ThemeSelection.module.css */
+.themeSelection {
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+}
+
+.themeCardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 colonnes flexibles, min 280px */
+  gap: var(--spacing-md); /* Espace entre les cartes */
+  justify-items: center; /* Centrer les éléments dans la grille */
+  margin-top: var(--spacing-lg);
+}
+
+/* Assurez-vous que les cartes ne débordent pas sur mobile */
+@media (max-width: 600px) {
+  .themeCardsContainer {
+    grid-template-columns: 1fr; /* Une seule colonne sur petits écrans */
+  }
+}
