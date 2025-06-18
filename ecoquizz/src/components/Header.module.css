@@ -1,35 +1,62 @@
 /* src/components/Header.module.css */
+
 .header {
-  background-color: var(--color-background-card);
-  padding: var(--spacing-md) var(--spacing-lg);
-  border-bottom: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
+  background-color: var(--color-background-card); /* Blanc pur pour un look propre */
+  padding: var(--spacing-md) var(--spacing-lg); /* Padding vertical et horizontal */
+  border-bottom: 1px solid var(--color-border); /* Petite bordure en bas */
+  box-shadow: var(--shadow-sm); /* Ombre subtile pour la profondeur */
   display: flex;
-  justify-content: center; /* Centrer le contenu */
-  align-items: center;
+  justify-content: center; /* Centre le contenu horizontalement dans l'en-tête */
+  align-items: center; /* Centre le contenu verticalement */
+  width: 100%; /* S'assure que l'en-tête prend toute la largeur */
+  min-height: 80px; /* Hauteur minimale pour l'en-tête */
 }
 
 .headerContent {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm); /* Espace entre logo et titre */
+  display: flex; /* Utilise Flexbox pour aligner le logo et le titre */
+  align-items: center; /* Aligner les éléments (logo et titre) sur leur centre vertical */
+  gap: var(--spacing-sm); /* Espace entre le logo et le titre (environ 16px) */
+  max-width: 1400px; /* Assurez-vous que le contenu ne s'étire pas trop sur de grands écrans */
+  width: 100%; /* S'assure que le contenu prend la largeur disponible dans le max-width */
+  justify-content: flex-start; /* Aligne le contenu (logo+titre) à gauche dans le header */
 }
 
 .logo {
-  height: 40px; /* Taille du logo */
-  width: auto;
+  height: 50px; /* Taille du logo, un peu plus grand pour être bien visible */
+  width: auto; /* Maintient le ratio d'aspect */
+  /* Ajoutez un petit margin-right si le gap ne suffit pas ou si vous préférez plus d'espace spécifique */
 }
 
 .title {
-  font-size: 1.8rem;
-  color: var(--color-primary-dark);
+  font-size: 2.2rem; /* Taille de la police pour le titre */
+  font-weight: bold; /* Gras pour le titre */
+  color: var(--color-primary-dark); /* Couleur verte foncée pour le titre */
+  margin: 0; /* Réinitialiser les marges par défaut des h1 */
 }
 
+/* --- Responsive pour les petits écrans --- */
 @media (max-width: 768px) {
+  .header {
+    padding: var(--spacing-sm); /* Réduire le padding sur mobile */
+    min-height: 60px; /* Réduire la hauteur minimale */
+  }
+
+  .logo {
+    height: 40px; /* Réduire la taille du logo sur mobile */
+  }
+
+  .title {
+    font-size: 1.8rem; /* Réduire la taille du titre sur mobile */
+  }
+
+  .headerContent {
+    gap: var(--spacing-xs); /* Réduire l'espace entre le logo et le titre */
+  }
+}
+
+/* Très petits écrans, si le texte est encore trop grand */
+@media (max-width: 480px) {
   .title {
     font-size: 1.5rem;
-  }
-  .logo {
-    height: 30px;
   }
 }

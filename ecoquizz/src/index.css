@@ -36,6 +36,8 @@
   --font-family-heading: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; /* Peut être différente si vous le souhaitez */
   --font-size-base: 1rem; /* 16px */
   --line-height-base: 1.6;
+
+  --max-content-width: 1200px; /* Largeur max du contenu principal */
 }
 
 /* --- Réinitialisation de base (normalize.css simplifié) --- */
@@ -45,7 +47,7 @@
   padding: 0;
 }
 
-body {
+ body {
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
@@ -53,6 +55,10 @@ body {
   background-color: var(--color-background-light);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  min-height: 100vh; /* Assure que le body prend au moins toute la hauteur de la fenêtre */
+  padding-bottom: 120px; /* Ajoute un espace en bas pour le chatbot (doit correspondre à la max-height du chatbot) */
+  box-sizing: border-box; /* IMPORTANT : Pour que padding-bottom soit inclus dans la hauteur totale */
 }
 
 /* --- Styles Généraux --- */
@@ -92,11 +98,14 @@ a:hover {
 }
 
 .main-content {
-  flex-grow: 1; /* Prend l'espace disponible */
+  flex-grow: 1;
   padding: var(--spacing-md);
-  max-width: 1400px; /* Largeur max pour le contenu */
-  margin: 0 auto; /* Centrer le contenu */
-  width: 100%; /* Assurer que ça prend toute la largeur disponible */
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  width: 100%;
+  /* Supprimez le padding-right que nous avions ajouté pour la position latérale du chatbot */
+  /* Si vous aviez ceci, assurez-vous qu'il est supprimé ou réinitialisé */
+  padding-right: var(--spacing-md); /* Revenir au padding normal si vous avez un padding-bottom sur body */
 }
 
 /* --- Accessibilité utilitaire --- */

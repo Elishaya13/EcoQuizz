@@ -1,57 +1,67 @@
 /* src/components/Chatbot.module.css */
+
 .chatbotContainer {
-  position: fixed; /* Fixer le chatbot à l'écran */
-  bottom: var(--spacing-lg);
-  right: var(--spacing-lg);
-  width: 320px; /* Largeur du chatbot */
-  max-height: 450px; /* Hauteur max */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-height: 120px;
   background-color: var(--color-background-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius-lg);
+  border-top: 1px solid var(--color-border);
   box-shadow: var(--shadow-lg);
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Pour cacher le contenu qui dépasse */
-  z-index: 1000; /* Assurez-vous qu'il est au-dessus des autres éléments */
+  overflow: hidden;
+  z-index: 1000;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  box-sizing: border-box;
 }
 
 .chatbotMessages {
   flex-grow: 1;
-  padding: var(--spacing-sm);
-  overflow-y: auto; /* Permet le défilement des messages */
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
+  justify-content: flex-end;
+  /* NOUVEAU: Centre le contenu des messages */
+  align-items: center; /* Ceci va centrer les bulles de message */
+  text-align: center; /* Ceci va centrer le texte à l'intérieur des bulles */
 }
 
 .message {
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--border-radius-md);
-  max-width: 80%;
-  word-wrap: break-word; /* Gère les longs mots */
+  max-width: 70%;
+  word-wrap: break-word;
+  font-size: 0.95rem;
+  /* Pour que la bulle reste centrée même avec une largeur inférieure à 100% */
+  margin: 0 auto;
 }
 
 .bot {
   background-color: var(--color-primary-light);
   color: var(--color-text-light);
-  align-self: flex-start; /* Aligner à gauche */
-  border-bottom-left-radius: 4px; /* Petite touche esthétique */
+  /* align-self: flex-start;  <-- Supprimez cette ligne si vous voulez centrer les bulles du bot aussi */
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: var(--border-radius-md);
 }
 
 .user {
   background-color: var(--color-secondary);
   color: var(--color-text-light);
-  align-self: flex-end; /* Aligner à droite */
-  border-bottom-right-radius: 4px; /* Petite touche esthétique */
+  /* align-self: flex-end;  <-- Supprimez cette ligne si vous voulez centrer les bulles de l'utilisateur aussi */
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: var(--border-radius-md);
 }
 
 /* Responsive pour le chatbot */
 @media (max-width: 768px) {
   .chatbotContainer {
-    width: 90%; /* Prend plus de largeur sur mobile */
-    bottom: var(--spacing-md);
-    right: 5%; /* Centrer approximativement */
-    left: 5%;
-    max-height: 350px;
+    max-height: 100px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  .message {
+    font-size: 0.85rem;
   }
 }
